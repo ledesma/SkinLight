@@ -151,19 +151,19 @@ div.ipsWebFront {
     font-size: 24px; }
 
 .ipsVariable > .content > .visual > .selector > div ,
-.ipsVariable > .content > .visual > .enum > div {
-    min-width: 0!important;
-    padding: 0 8px!important;
+.ipsVariable:not(.ipsVariableProfile\[LED\]) > .content > .visual > .enum > div {
+  min-width: 0!important;
+  padding: 0 8px!important;
 	background: none!important;
 	color: #555!important; }
 
 .ipsVariable > .content > .visual > .selector > div.selected ,
-.ipsVariable > .content > .visual > .enum > div.selected {
-    background: none!important;
+.ipsVariable:not(.ipsVariableProfile\[LED\]) > .content > .visual > .enum > div.selected {
+  background: none!important;
 	color: #3aa9ff!important; }
 
 .ipsVariable > .content > .visual > .selector.overflowing > div.selected ,
-.ipsVariable > .content > .visual > .enum.overflowing > div.selected {
+.ipsVariable:not(.ipsVariableProfile\[LED\]) > .content > .visual > .enum.overflowing > div.selected {
 	color: #555!important; }
 
 
@@ -538,3 +538,19 @@ div.ipsPanel.ipsDWDReport .title {
 	border-color: #3aa9ff;
 	 opacity: 1!important;
     background-image: url(icons/primary/Edit.svg); } 
+
+
+/* 
+ * custom profiles
+ */
+.ipsVariableProfile[LED] > .content > .visual > .enum > div {
+  min-width: 0!important;
+  padding: 0 8px!important;
+  background-image: none!important;
+  color: #555!important; 
+}
+
+.ipsVariableProfile[LED] > .content > .visual > .enum > div.selected {
+  background-image: none!important;
+  color: #3aa9ff!important; 
+}
