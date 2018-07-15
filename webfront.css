@@ -164,7 +164,8 @@ div.ipsWebFront {
 
 .ipsVariable > .content > .visual > .selector.overflowing > div.selected ,
 .ipsVariable:not(.ipsVariableProfile\[LED\]) > .content > .visual > .enum.overflowing > div.selected {
-	color: #555!important; }
+	color: #555!important;
+  background-image: none!important }
 
 
 /*
@@ -543,14 +544,17 @@ div.ipsPanel.ipsDWDReport .title {
 /* 
  * custom profiles
  */
-.ipsVariableProfile[LED] > .content > .visual > .enum > div {
+.ipsVariableProfile\[LED\] > .content > .visual > .enum > div {
   min-width: 0!important;
   padding: 0 8px!important;
   background-image: none!important;
   color: #555!important; 
+  width: 20px;
+  border: solid 1px #999 !important;
 }
 
-.ipsVariableProfile[LED] > .content > .visual > .enum > div.selected {
+.ipsVariableProfile\[LED\] > .content > .visual > .enum > div.selected {
   background-image: none!important;
   color: #3aa9ff!important; 
+  box-shadow: 1px 1px 3px #999
 }
