@@ -171,6 +171,9 @@ div.ipsWebFront {
 /*
  *	ipsNotification
  */
+.ipsNotifications>.ipsNotification>.message.icon {
+    filter: invert(0);
+}
 .ipsNotifications>.ipsNotification>.message {
 	background-color: #efefef!important;
     border-radius: 0!important;
@@ -247,19 +250,17 @@ div.ipsWebFront {
 /* FIXME: this is currently set hardcoded in the style - why? */
 .ipsDialog.ipsEventDialog>div>.content>.outerCenter>.center>.scheduleDayContainer>.day div {
     padding: 3px 3px 1px!important;
-}	
+}
+
+.ipsDialog.ipsScheduleEntryDialog .statusSelectBox > li:hover,
+.ipsDialog.ipsScheduleEntryDialog .statusSelectBox > li.active{
+    color: black; }
 
 /* ipsInstancePopup dialog */	
 /* FIXME: try this with more complex dialogs! */
 .ipsInstancePopup > div > .content > .ipsCategory > .ipsContainer {
 	box-shadow: 5px 7px 5px -5px rgb(182, 182, 182); }
 
-
-/* ipsColorDialog */
-.ipsColorDialog .ipsIconOk {
-    background-image: url(../../../img/icons/Ok.svg); /* overwrite skin-icon with default one */
-}
-	
 /* ipsCircleSlider dialog */
 
 /* FIXME: how to style save dialog  */
@@ -305,7 +306,63 @@ div.ipsWebFront {
 .ipsCategory>.container .content .visual>.slider {
     margin-left: -60px;
     width: calc(100% - 50px); }	
-	
+
+/* Invertieren von Symbolen */
+.icon,
+.iconSmall,
+.iconExtraSmall,
+.edit {
+    filter: invert(0.6);
+}
+
+.content > .configurators .edit,
+.content > .configurators .lock {
+    filter: invert(0.6);
+}
+
+.ipsCategory>.container .content .icon {
+	filter: invert(0.6);
+}
+
+.ipsCategory>.container .content .link>.keyboardLink, 
+.ipsCategory>.container .content .link>.chartLink, 
+.ipsCategory>.container .content .link>.timerLink, 
+.ipsCategory>.container .content .link>.runLink, 
+.ipsCategory>.container .content .link>.colorLink, 
+.ipsCategory>.container .content .link>.enumLink {
+	filter: invert(0.6);
+}
+
+.ipsDialog .ipsIconClose {
+    filter: invert(0.6);
+}
+
+.ipsDialog.ipsEditorDialog>div>.remove, 
+.ipsDialog.ipsEditorDialog>div>.save, 
+.ipsDialog.ipsEditorSelectDialog>div>.content .treeIcon {
+	filter: invert(0.6);
+}
+
+.ipsDialog.ipsChartDialog>div>.buttons>.prev, 
+.ipsDialog.ipsChartDialog>div>.buttons>.next {
+	filter: invert(0.6);
+}
+
+.ipsDialog.ipsScheduleEntryDialog>div>.buttons, 
+.ipsDialog.ipsMailDialog>div>.buttons, 
+.ipsDialog.Dialog>div>.buttons {
+	filter: invert(0.6);
+}
+
+.ipsDialog.ipsEventDialog .buttons, 
+.ipsDialog.ipsDateTimeDialog .buttons {
+	filter: invert(0.6);
+}
+
+.ipsWebFront.editable>.save {
+    filter: invert(0);
+}
+
 /* Colored */
 .ipsCategory>.container .content .visual>.text.colored  {
 		background-image: none!important; }
@@ -341,7 +398,11 @@ html body .ipsDialog.ipsChartDialog > div {
 .ipsSplitPane.editable .new > .new-middle > .new-text {
 	margin: 0 auto;
     width: 22px; }
-	
+
+.ipsWebFront.editable>.save {
+    border: none;
+    background-color: #3aa9ff; }
+
 .sub  > .ipsIconEdit{
 margin-top: 5px; }
 	
@@ -441,10 +502,11 @@ div.ipsPanel.ipsDWDReport .title {
 
 .ipsLogin>.content {
 	margin: 0;
-	height: 50%; }
+	height: 50%;
+    overflow-y: hidden; }
 	
 .ipsLogin>.content>.configurators {
-	background: none;a
+	background: none;
     border: none;
     padding: 0;
     margin: 0;
@@ -490,71 +552,37 @@ div.ipsPanel.ipsDWDReport .title {
 	top: 75%; }
 
 .ipsLogin>.content>.throbber .iconSpinner {
-	background-image: url(img/spinner.svg); }       
+	background-image: url(img/spinner.svg); }
+    
+.ipsLogin>.content>div.password>input {
+    background: white;
+    color: #606161;
+    width: 180px; }
 
-.ipsLogin .ipsIconEdit {
-    opacity: 0.8!important;
-    cursor: pointer;
-    margin-top: 3px!important;
-    background-image: url(icons/primary/Edit.svg); }
-        
+.ipsLogin>.content>div.password {
+    height: 60px;
+    position: absolute;
+    padding-top: 36px;
+    margin-top: 0;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    margin-left: 0;	
+    width: 100%;
+    background-color: #cacaca;
+    animation: slide-up 0.6s ease-in-out; }
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Throbber */        
 .iconSpinner {
 	background-image: url(img/spinner.svg)!important; }
-	
-	
-/*
- *
- *	ipsEditor	
- *
- */
-.ipsWebFront.editable>.save {
-	border: none;
-	background-color: #3aa9ff;
-	background-image: url(/img/icons/Ok.svg); }
-	
-.ipsTabPane.editable>.navigation>div>div>div>.edit,
-.ipsTabPane.editable>.navigation>div>.edit,
-.ipsTabPane.editable>.navigation>div>div>.edit {
-	opacity: 1!important;
-    background-image: url(icons/primary/Edit.svg); }    
-    
-.ipsTabPane.editable>.navigation>.scroll>.buttons>div>.new {
-	opacity: 1;
-	background-image: url(icons/primary/Plus.svg); }
-	
-.ipsDialog.ipsEditorDialog>div>.remove, 
-.ipsDialog.ipsEditorDialog>div>.save {
-	opacity: 1; }
-	
-.ipsDialog.ipsEditorDialog>div>.save {
-	background-image: url(icons/primary/Ok.svg);
-	cursor: pointer; }
-	
-.ipsWebFront.editable>.edit, 
-.ipsSplitPane.editable>.top>.edit, 
-.ipsSplitPane.editable>.bottom>.edit, 
-.ipsSplitPane.editable>.left>.edit, 
-.ipsSplitPane.editable>.right>.edit {
-	border-color: #3aa9ff;
-	 opacity: 1!important;
-    background-image: url(icons/primary/Edit.svg); } 
-
-
-/* 
- * custom profiles
- */
-.ipsVariableProfile\[LED\] > .content > .visual > .enum > div {
-  min-width: 0!important;
-  padding: 0 8px!important;
-  background-image: none!important;
-  color: #555!important; 
-  width: 20px;
-  border: solid 1px #999 !important;
-}
-
-.ipsVariableProfile\[LED\] > .content > .visual > .enum > div.selected {
-  background-image: none!important;
-  color: #3aa9ff!important; 
-  box-shadow: 1px 1px 3px #999
-}
